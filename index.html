@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lançamentos Contábeis — Módulo 5</title>
+  <meta property="og:title" content="Lançamentos Contábeis — Módulo 5" />
+  <meta property="og:description" content="Jogo dos Razonetes — Adiantamentos | Logos Concursos" />
+  <meta property="og:site_name" content="Logos Concursos" />
+  <link rel="stylesheet" href="./style.css?v=1">
+</head>
+<body>
+
+<!-- SENHA -->
+<div class="intro" id="senha">
+  <h1>📒 Jogo dos Lançamentos Contábeis</h1>
+  <h2>Logos Concursos — Módulo 5</h2>
+  <p>Digite a senha de acesso para continuar:</p>
+  <div class="cadastro-form">
+    <input type="password" id="inputSenha" placeholder="Senha de acesso" />
+    <div id="senhaErro" class="cadastro-erro"></div>
+    <button onclick="verificarSenha()">🔓 Entrar</button>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="intro" id="intro" style="display:none;">
+  <h1>📒 Jogo dos Lançamentos Contábeis</h1>
+  <h2>Logos Concursos — Módulo 5</h2>
+  <p>Bem-vindo(a) ao <strong>Módulo 5 — Adiantamentos</strong>!</p>
+  <p>
+    Neste módulo você vai praticar lançamentos com
+    <strong>Adiantamentos a Fornecedores</strong>,
+    <strong>Adiantamentos de Clientes</strong> e
+    <strong>Adiantamentos a Empregados</strong>.
+  </p>
+  <p>
+    Arraste cada conta para o lado correto:
+    <strong>Débito (D)</strong> ou <strong>Crédito (C)</strong>.
+  </p>
+  <button onclick="mostrarCadastro()">Iniciar Módulo 5</button>
+</div>
+
+<!-- REGISTRO -->
+<div class="intro" id="registro" style="display:none;">
+  <h1>📒 Jogo dos Lançamentos Contábeis</h1>
+  <h2>Logos Concursos — Módulo 5</h2>
+  <p>Preencha seus dados para começar:</p>
+  <div class="cadastro-form">
+    <input type="text"  id="inputNome"  placeholder="Seu nome completo" />
+    <input type="email" id="inputEmail" placeholder="Seu e-mail" />
+    <div id="cadastroErro" class="cadastro-erro"></div>
+    <button onclick="iniciarComCadastro()">▶ Começar</button>
+  </div>
+</div>
+
+<!-- GAME -->
+<div id="game" style="display:none;">
+
+  <div class="game-topo">
+    <h1>💰 Adiantamentos Contábeis</h1>
+    <div class="score-box">⭐ <span id="scoreDisplay">0</span> pts</div>
+  </div>
+
+  <div class="mission" id="missionBox"></div>
+
+  <div class="cards" id="cards"></div>
+
+  <div class="feedback" id="feedback"></div>
+
+  <div class="razonetes-grid" id="razonetesGrid"></div>
+
+  <div class="explanation" id="explanation" style="display:none;"></div>
+
+  <div class="actions">
+    <button id="nextBtn" onclick="nextLancamento()" disabled>➡ Próximo Lançamento</button>
+    <button onclick="resetGame()">↺ Reiniciar</button>
+  </div>
+
+</div>
+
+<!-- RESULTADO -->
+<div id="resultado" style="display:none;"></div>
+
+<script src="./script.js?v=1"></script>
+
+<footer class="rodape-copyright">
+  © 2026 Logos Concursos — Jogo da Balança Contábil. Todos os direitos reservados.<br>
+  Desenvolvido por Adriane Gomes | logosconcursos.com.br
+</footer>
+
+</body>
+</html>
