@@ -154,17 +154,16 @@ const lancamentos = [
     explicacao: "<strong>Adiantamentos de Clientes</strong> é debitado — baixa da obrigação: a empresa cumpriu sua parte (entregou a mercadoria). <strong>Duplicatas a Receber</strong> é creditado — o adiantamento abate R$&nbsp;5.000 do valor a receber; o saldo restante fica R$&nbsp;7.000."
   },
 
-  // ── L10 (COMPOSTO — CENÁRIO A) ───────────
+  // ── L10 ───────────────────────────────────
   {
     id: 10,
-    descricao: "Cenário A — Pelo <strong>pagamento do salário de R$&nbsp;5.000 no próprio mês do adiantamento</strong> (adiantamento prévio de R$&nbsp;2.000). Lançamento composto: R$&nbsp;3.000 via Banco + R$&nbsp;2.000 compensados pelo adiantamento. <em>(3 cartões!)</em>",
+    descricao: "Pelo <strong>recebimento do saldo do Cliente A de R$&nbsp;7.000</strong> via Banco (R$&nbsp;12.000 da venda menos R$&nbsp;5.000 já compensados pelo adiantamento no L9).",
     cards: [
-      { id: "c10a", label: "Despesa de Salários",        value: 5000, conta: "despesaSalarios",  lado: "debito"  },
-      { id: "c10b", label: "Banco Conta Movimento",       value: 3000, conta: "banco",             lado: "credito" },
-      { id: "c10c", label: "Adiantamentos a Empregados", value: 2000, conta: "adiantEmpregados",  lado: "credito" }
+      { id: "c10a", label: "Banco Conta Movimento", value: 7000, conta: "banco",             lado: "debito"  },
+      { id: "c10b", label: "Duplicatas a Receber",  value: 7000, conta: "duplicatasReceber", lado: "credito" }
     ],
     novosRazonetes: [],
-    explicacao: "Cenário A (pagamento no mesmo mês): <strong>Despesa de Salários</strong> é debitada pelo total (R$&nbsp;5.000). <strong>Banco</strong> é creditado por R$&nbsp;3.000 (valor pago agora). <strong>Adiantamentos a Empregados</strong> é creditado por R$&nbsp;2.000 — baixa do adiantamento no mesmo lançamento. Compare com o Cenário B (L6-L8): no Cenário A o pagamento é imediato e não passa por Salários a Pagar."
+    explicacao: "<strong>Banco</strong> é debitado — entrada de R$&nbsp;7.000 que o cliente pagou. <strong>Duplicatas a Receber</strong> é creditado — zera o saldo restante (R$&nbsp;12.000 − R$&nbsp;5.000 do adiantamento = R$&nbsp;7.000). Ciclo completo do cliente: adiantamento (L3) → venda (L4) → baixa do adiantamento (L9) → recebimento do saldo (L10)."
   }
 ];
 
