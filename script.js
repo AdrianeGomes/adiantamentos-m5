@@ -97,73 +97,73 @@ const lancamentos = [
   // ── L5 ────────────────────────────────────
   {
     id: 5,
-    descricao: "Pagamento do <strong>adiantamento salarial ao empregado no valor de R$&nbsp;2.000</strong>, via Banco.",
-    cards: [
-      { id: "c5a", label: "Adiantamentos a Empregados", value: 2000, conta: "adiantEmpregados", lado: "debito"  },
-      { id: "c5b", label: "Banco Conta Movimento",       value: 2000, conta: "banco",             lado: "credito" }
-    ],
-    novosRazonetes: ["adiantEmpregados"],
-    explicacao: "<strong>Adiantamentos a Empregados</strong> é debitado — representa um direito da empresa (Ativo): o empregado deverá descontar esse valor no recebimento do salário. <strong>Banco</strong> é creditado — saída de dinheiro."
-  },
-
-  // ── L6 ────────────────────────────────────
-  {
-    id: 6,
-    descricao: "<strong>Reconhecimento da despesa de salários de R$&nbsp;5.000</strong>, no mês do adiantamento, sem o pagamento do salário integral (Cenário B — pagamento no mês seguinte).",
-    cards: [
-      { id: "c6a", label: "Despesa de Salários", value: 5000, conta: "despesaSalarios", lado: "debito"  },
-      { id: "c6b", label: "Salários a Pagar",    value: 5000, conta: "salariosAPagar",  lado: "credito" }
-    ],
-    novosRazonetes: ["despesaSalarios", "salariosAPagar"],
-    explicacao: "<strong>Despesa de Salários</strong> é debitada — regime de competência: a despesa pertence ao mês trabalhado, mesmo que o pagamento ocorra no mês seguinte. <strong>Salários a Pagar</strong> é creditado — obrigação com os empregados (Passivo Circulante)."
-  },
-
-  // ── L7 ────────────────────────────────────
-  {
-    id: 7,
-    descricao: "Pelo <strong>desconto do adiantamento de R$&nbsp;2.000</strong> efetuado ao empregado.",
-    cards: [
-      { id: "c7a", label: "Salários a Pagar",           value: 2000, conta: "salariosAPagar",   lado: "debito"  },
-      { id: "c7b", label: "Adiantamentos a Empregados", value: 2000, conta: "adiantEmpregados", lado: "credito" }
-    ],
-    novosRazonetes: [],
-    explicacao: "<strong>Salários a Pagar</strong> é debitado — reduz a obrigação em R$&nbsp;2.000 (saldo fica R$&nbsp;3.000). <strong>Adiantamentos a Empregados</strong> é creditado — baixa do adiantamento: o direito é compensado com a obrigação salarial. Saldo do adiantamento vai a zero."
-  },
-
-  // ── L8 ────────────────────────────────────
-  {
-    id: 8,
-    descricao: "Pelo <strong>pagamento efetivo do saldo de salários de R$&nbsp;3.000</strong> (despesa reconhecida no mês anterior), via Caixa.",
-    cards: [
-      { id: "c8a", label: "Salários a Pagar", value: 3000, conta: "salariosAPagar", lado: "debito"  },
-      { id: "c8b", label: "Caixa",            value: 3000, conta: "caixa",          lado: "credito" }
-    ],
-    novosRazonetes: [],
-    explicacao: "<strong>Salários a Pagar</strong> é debitado — quitação da obrigação (saldo vai a zero). <strong>Caixa</strong> é creditado — saída do dinheiro que efetiva o pagamento."
-  },
-
-  // ── L9 ────────────────────────────────────
-  {
-    id: 9,
     descricao: "Pela <strong>baixa do adiantamento de clientes de R$&nbsp;5.000</strong>: o Cliente A realizou a compra (L4), logo o adiantamento é abatido do saldo a receber.",
     cards: [
-      { id: "c9a", label: "Adiantamentos de Clientes", value: 5000, conta: "adiantClientes",   lado: "debito"  },
-      { id: "c9b", label: "Duplicatas a Receber",       value: 5000, conta: "duplicatasReceber", lado: "credito" }
+      { id: "c5a", label: "Adiantamentos de Clientes", value: 5000, conta: "adiantClientes",    lado: "debito"  },
+      { id: "c5b", label: "Duplicatas a Receber",       value: 5000, conta: "duplicatasReceber", lado: "credito" }
     ],
     novosRazonetes: [],
     explicacao: "<strong>Adiantamentos de Clientes</strong> é debitado — baixa da obrigação: a empresa cumpriu sua parte (entregou a mercadoria). <strong>Duplicatas a Receber</strong> é creditado — o adiantamento abate R$&nbsp;5.000 do valor a receber; o saldo restante fica R$&nbsp;7.000."
   },
 
+  // ── L6 ────────────────────────────────────
+  {
+    id: 6,
+    descricao: "Pagamento do <strong>adiantamento salarial ao empregado no valor de R$&nbsp;2.000</strong>, via Banco.",
+    cards: [
+      { id: "c6a", label: "Adiantamentos a Empregados", value: 2000, conta: "adiantEmpregados", lado: "debito"  },
+      { id: "c6b", label: "Banco Conta Movimento",       value: 2000, conta: "banco",             lado: "credito" }
+    ],
+    novosRazonetes: ["adiantEmpregados"],
+    explicacao: "<strong>Adiantamentos a Empregados</strong> é debitado — representa um direito da empresa (Ativo): o empregado deverá descontar esse valor no recebimento do salário. <strong>Banco</strong> é creditado — saída de dinheiro."
+  },
+
+  // ── L7 ────────────────────────────────────
+  {
+    id: 7,
+    descricao: "<strong>Reconhecimento da despesa de salários de R$&nbsp;5.000</strong>, no mês do adiantamento, sem o pagamento do salário integral (Cenário B — pagamento no mês seguinte).",
+    cards: [
+      { id: "c7a", label: "Despesa de Salários", value: 5000, conta: "despesaSalarios", lado: "debito"  },
+      { id: "c7b", label: "Salários a Pagar",    value: 5000, conta: "salariosAPagar",  lado: "credito" }
+    ],
+    novosRazonetes: ["despesaSalarios", "salariosAPagar"],
+    explicacao: "<strong>Despesa de Salários</strong> é debitada — regime de competência: a despesa pertence ao mês trabalhado, mesmo que o pagamento ocorra no mês seguinte. <strong>Salários a Pagar</strong> é creditado — obrigação com os empregados (Passivo Circulante)."
+  },
+
+  // ── L8 ────────────────────────────────────
+  {
+    id: 8,
+    descricao: "Pelo <strong>desconto do adiantamento de R$&nbsp;2.000</strong> efetuado ao empregado.",
+    cards: [
+      { id: "c8a", label: "Salários a Pagar",           value: 2000, conta: "salariosAPagar",   lado: "debito"  },
+      { id: "c8b", label: "Adiantamentos a Empregados", value: 2000, conta: "adiantEmpregados", lado: "credito" }
+    ],
+    novosRazonetes: [],
+    explicacao: "<strong>Salários a Pagar</strong> é debitado — reduz a obrigação em R$&nbsp;2.000 (saldo fica R$&nbsp;3.000). <strong>Adiantamentos a Empregados</strong> é creditado — baixa do adiantamento: o direito é compensado com a obrigação salarial. Saldo do adiantamento vai a zero."
+  },
+
+  // ── L9 ────────────────────────────────────
+  {
+    id: 9,
+    descricao: "Pelo <strong>pagamento efetivo do saldo de salários de R$&nbsp;3.000</strong> (despesa reconhecida no mês anterior), via Caixa.",
+    cards: [
+      { id: "c9a", label: "Salários a Pagar", value: 3000, conta: "salariosAPagar", lado: "debito"  },
+      { id: "c9b", label: "Caixa",            value: 3000, conta: "caixa",          lado: "credito" }
+    ],
+    novosRazonetes: [],
+    explicacao: "<strong>Salários a Pagar</strong> é debitado — quitação da obrigação (saldo vai a zero). <strong>Caixa</strong> é creditado — saída do dinheiro que efetiva o pagamento."
+  },
+
   // ── L10 ───────────────────────────────────
   {
     id: 10,
-    descricao: "Pelo <strong>recebimento do saldo do Cliente A de R$&nbsp;7.000</strong> via Banco (R$&nbsp;12.000 da venda menos R$&nbsp;5.000 já compensados pelo adiantamento no L9).",
+    descricao: "Pelo <strong>recebimento do saldo do Cliente A de R$&nbsp;7.000</strong> via Banco (R$&nbsp;12.000 da venda menos R$&nbsp;5.000 já compensados pelo adiantamento no L5).",
     cards: [
       { id: "c10a", label: "Banco Conta Movimento", value: 7000, conta: "banco",             lado: "debito"  },
       { id: "c10b", label: "Duplicatas a Receber",  value: 7000, conta: "duplicatasReceber", lado: "credito" }
     ],
     novosRazonetes: [],
-    explicacao: "<strong>Banco</strong> é debitado — entrada de R$&nbsp;7.000 que o cliente pagou. <strong>Duplicatas a Receber</strong> é creditado — zera o saldo restante (R$&nbsp;12.000 − R$&nbsp;5.000 do adiantamento = R$&nbsp;7.000). Ciclo completo do cliente: adiantamento (L3) → venda (L4) → baixa do adiantamento (L9) → recebimento do saldo (L10)."
+    explicacao: "<strong>Banco</strong> é debitado — entrada de R$&nbsp;7.000 que o cliente pagou. <strong>Duplicatas a Receber</strong> é creditado — zera o saldo restante (R$&nbsp;12.000 − R$&nbsp;5.000 do adiantamento = R$&nbsp;7.000). Ciclo completo do cliente: adiantamento (L3) → venda (L4) → baixa do adiantamento (L5) → recebimento do saldo (L10)."
   }
 ];
 
