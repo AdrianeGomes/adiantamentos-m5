@@ -295,6 +295,14 @@ function iniciarComCadastro() {
 }
 
 // =============================================
+//  SALDOS INICIAIS
+// =============================================
+const saldosIniciais = {
+  banco: { lado: "debito", valor: 20000 },
+  caixa: { lado: "debito", valor: 5000  },
+};
+
+// =============================================
 //  INICIALIZAÇÃO
 // =============================================
 function initGame() {
@@ -307,6 +315,26 @@ function initGame() {
   selectedCardId    = null;
   document.getElementById("razonetesGrid").innerHTML = "";
   updateScoreDisplay();
+
+  // Criar razonetes com saldos iniciais
+  Object.entries(saldosIniciais).forEach(([conta, ini]) => {
+    visibleRazonetes.push(conta);
+    addRazonete(conta);
+    if (!razoneteSaldos[conta]) razoneteSaldos[conta] = { debito: 0, credito: 0 };
+    razoneteSaldos[conta][ini.lado] += ini.valor;
+    const col = document.getElementById(`raz-${conta}-${ini.lado}`);
+    if (col) {
+      const entry = document.createElement("div");
+      entry.className = "raz-entry raz-entry-herdado";
+      entry.innerHTML = `
+        <span class="raz-val">R$&nbsp;${format(ini.valor)}</span>
+        <span class="raz-herdado-label">↩ Saldo inicial</span>
+      `;
+      col.appendChild(entry);
+    }
+    updateSaldo(conta);
+  });
+
   loadLancamento();
 }
 
